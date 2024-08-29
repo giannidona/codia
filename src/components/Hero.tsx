@@ -3,7 +3,9 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    <section className="mx-auto flex h-screen w-[90%] flex-col items-center justify-center text-center lg:w-[70%] xl:w-[45%]">
+    
+    <section className="mx-auto flex h-screen w-[90%] flex-col items-center justify-center text-center lg:w-[70%] xl:w-[45%] animate-fadeIn transition-all">
+      
       <h1 className="text-5xl font-bold leading-[3.5rem] text-white">
         La página web <span className="text-eLightBlue">ideal</span> para tu
         negocio, a tan solo <span className="text-eLightBlue">un click</span>.
@@ -21,5 +23,6 @@ export const Hero = () => {
         </Link>
       </div>
     </section>
+    
   );
 };
