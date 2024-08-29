@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AlignJustify, X } from "lucide-react";
 import Image from "next/image";
+import { Squash as Hamburger } from 'hamburger-react'
 
 const links = [
   { slug: "/awd", text: "Inicio" },
@@ -19,8 +20,8 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="absolute flex h-[75px] w-full bg-black/90 backdrop-blur-sm">
-      <div className="mx-auto flex w-[90%] items-center justify-between">
+    <nav className="absolute flex h-[75px] w-full bg-black/90 backdrop-blur-sm flex-col z-50">
+      <div className="mx-auto flex w-[90%] items-center justify-between py-3">
         <div>
           <Image src="/logo.svg" alt="codia logo" width={100} height={50} />
         </div>
@@ -46,11 +47,10 @@ export const Navbar = () => {
         </div>
       </div>
       <div
-        className={`fixed inset-0 top-[75px] bg-black/90 p-4 text-right ${
-          isOpen ? "flex" : "hidden"
-        }`}
+        className={`fixed inset-0 top-[75px] z-50 bg-black/90 p-4 text-right min-h-[900px] text-3xl ${isOpen ? "flex" : "hidden"
+          }`}
       >
-        <ul className="flex w-[97%] flex-col space-y-4">
+        <ul className="flex w-full flex-col space-y-8 text-center h-auto">
           {links.map((link) => (
             <li key={link.slug}>
               <a
@@ -64,6 +64,7 @@ export const Navbar = () => {
           ))}
         </ul>
       </div>
+      <hr className="opacity-10 border-l-stone-800 w-full" />
     </nav>
   );
 };
