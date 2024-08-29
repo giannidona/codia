@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AlignJustify, X } from "lucide-react";
 import Image from "next/image";
-import { Squash as Hamburger } from 'hamburger-react'
+import { Squash as Hamburger } from "hamburger-react";
 
 const links = [
   { slug: "/awd", text: "Inicio" },
@@ -13,26 +13,16 @@ const links = [
 ];
 
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const [Open, setOpen] = useState(false);
 
   return (
-    <nav className="absolute flex h-[75px] w-full bg-black/90 backdrop-blur-sm flex-col z-50">
+    <nav className="absolute z-50 flex h-[75px] w-full flex-col bg-black/90 backdrop-blur-sm">
       <div className="mx-auto flex w-[90%] items-center justify-between py-3">
         <div>
           <Image src="/logo.svg" alt="codia logo" width={100} height={50} />
         </div>
-        <div className="flex md:hidden">
-          <button onClick={toggleMenu} aria-label="Toggle menu">
-            {isOpen ? (
-              <X className="text-white" size={30} />
-            ) : (
-              <AlignJustify className="text-white" size={30} />
-            )}
-          </button>
+        <div className="flex text-white md:hidden">
+          <Hamburger toggled={Open} toggle={setOpen} />
         </div>
         <div className="hidden md:flex">
           <ul className="flex space-x-4">
@@ -47,16 +37,17 @@ export const Navbar = () => {
         </div>
       </div>
       <div
-        className={`fixed inset-0 top-[75px] z-50 bg-black/90 p-4 text-right min-h-[900px] text-3xl ${isOpen ? "flex" : "hidden"
-          }`}
+        className={`fixed inset-0 top-[75px] z-50 min-h-screen bg-black/90 p-4 text-right text-3xl transform ${
+          Open ? "translate-y-0" : "translate-y-full"
+        } transition-transform duration-300 ease-in-out`}
       >
-        <ul className="flex w-full flex-col space-y-8 text-center h-auto">
+        <ul className="flex h-auto w-full flex-col space-y-8 text-center">
           {links.map((link) => (
             <li key={link.slug}>
               <a
                 href={link.slug}
                 className="text-white hover:text-gray-400"
-                onClick={() => setIsOpen(false)}
+                onClick={() => setOpen(false)}
               >
                 {link.text}
               </a>
@@ -64,7 +55,7 @@ export const Navbar = () => {
           ))}
         </ul>
       </div>
-      <hr className="opacity-10 border-l-stone-800 w-full" />
+      <hr className="w-full border-l-stone-800 opacity-10" />
     </nav>
   );
 };
