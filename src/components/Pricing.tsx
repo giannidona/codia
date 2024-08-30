@@ -1,12 +1,13 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import useIntersectionObserver from "../app/hooks/useIntersectionObserver"; // Ajusta la ruta según tu estructura de archivos
 
 interface PricingPlan {
   title: string;
-  price: number;
   features: string[];
+  link: string;
 }
 
 interface PricingData {
@@ -18,22 +19,22 @@ export const Pricing = () => {
   const [activeCategory, setActiveCategory] = useState<"landing" | "ecommerce">(
     "landing",
   );
+  const [animationClass, setAnimationClass] = useState("fade-in");
 
   const pricingData: PricingData = {
     landing: [
       {
         title: "Básico",
-        price: 999,
         features: [
           "Diseño personalizado",
           "Hasta 5 secciones",
           "Formulario de contacto",
           "Optimización SEO básica",
         ],
+        link: "wsp",
       },
       {
         title: "Profesional",
-        price: 1999,
         features: [
           "Todo lo del plan Básico",
           "Hasta 10 secciones",
@@ -41,22 +42,22 @@ export const Pricing = () => {
           "Optimización SEO avanzada",
           "Integración de redes sociales",
         ],
+        link: "wsp",
       },
     ],
     ecommerce: [
       {
         title: "Tienda Básica",
-        price: 1999,
         features: [
           "Hasta 50 productos",
           "Carrito de compras",
           "Pasarela de pago",
           "Gestión de inventario básica",
         ],
+        link: "wsp",
       },
       {
         title: "Tienda Avanzada",
-        price: 3999,
         features: [
           "Hasta 500 productos",
           "Sistema de cupones y descuentos",
@@ -64,10 +65,10 @@ export const Pricing = () => {
           "Gestión de inventario avanzada",
           "Integración con marketplaces",
         ],
+        link: "wsp",
       },
       {
         title: "Tienda Empresarial",
-        price: 7999,
         features: [
           "Productos ilimitados",
           "Sistema de suscripciones",
@@ -75,79 +76,96 @@ export const Pricing = () => {
           "Integración con ERP",
           "Soporte prioritario 24/7",
         ],
+        link: "wsp",
       },
     ],
   };
 
+  const [ref, isVisible] = useIntersectionObserver({
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    setAnimationClass("fade-in");
+  }, [activeCategory]);
+
+  const handleCategoryChange = (category: "landing" | "ecommerce") => {
+    setAnimationClass("fade-out");
+    setTimeout(() => {
+      setActiveCategory(category);
+      setAnimationClass("fade-in");
+    }, 500); // Duration of the fade-out animation
+  };
+
   return (
-    <section className="mx-auto my-20 w-[90%] xl:w-[70%]">
-      <div className="px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            Nuestros Planes
-          </h2>
-          <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Elige el plan perfecto para tu negocio. Todos los planes incluyen
-            soporte técnico y actualizaciones gratuitas.
-          </p>
-          <div className="flex space-x-4">
-            <button
-              onClick={() => setActiveCategory("landing")}
-              className={`${
-                activeCategory === "landing"
-                  ? "border-2 border-white bg-white px-3 py-2 text-black"
-                  : "border-2 border-white bg-transparent text-white"
-              } rounded-md px-4 py-2`}
-            >
-              Landing Page
-            </button>
-            <button
-              onClick={() => setActiveCategory("ecommerce")}
-              className={`${
-                activeCategory === "ecommerce"
-                  ? "border-2 border-white bg-white px-3 py-2 text-black"
-                  : "border-2 border-white bg-transparent text-white"
-              } rounded-md px-4 py-2`}
-            >
-              E-commerce
-            </button>
-          </div>
-        </div>
-        <div
-          className={`mt-8 grid grid-cols-1 gap-6 ${activeCategory === "landing" ? "md:grid-cols-2" : "md:grid-cols-3"} md:gap-8`}
-        >
-          {pricingData[activeCategory].map((plan, index) => (
-            <div
-              key={index}
-              className="relative flex flex-col justify-between overflow-hidden rounded-lg border-2 border-white bg-black/5 p-6 shadow-lg"
-            >
-              <div>
-                <h3 className="text-center text-2xl font-bold">{plan.title}</h3>
-                <div className="mt-4 text-center text-gray-600 dark:text-gray-400">
-                  <span className="text-4xl font-bold">${plan.price}</span>/ mes
-                </div>
-                <ul className="mt-4 space-y-2">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <Check className="mr-2 h-5 w-5 text-green-500" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+    <section className="mx-auto my-20 w-[90%] xl:w-[70%] lg:h-[100vh] lg:flex lg:items-center lg:justify-center " id="precios">
+      <div className="w-full">
+        <div className="px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              Nuestros Planes
+            </h2>
+            <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Elige el plan perfecto para tu negocio. Todos los planes incluyen
+              soporte técnico y actualizaciones gratuitas.
+            </p>
+            <div className="flex space-x-4">
               <button
-                className={`mt-6 ${
-                  index === 1
-                    ? "border-2 border-white bg-white px-3 py-2 text-black transition duration-300 ease-in-out hover:bg-transparent hover:text-white"
-                    : "border-2 border-white bg-transparent text-white transition duration-300 ease-in-out hover:bg-white hover:text-black"
-                } rounded-md px-4 py-2`}
+                onClick={() => handleCategoryChange("landing")}
+                className={`${activeCategory === "landing"
+                    ? "border-2 border-white bg-white px-3 py-2 text-black"
+                    : "border-2 border-white bg-transparent text-white"
+                  } rounded-md py-2 min-w-[155px] max-w-[155px]`}
               >
-                Seleccionar Plan
+                Landing Page
+              </button>
+              <button
+                onClick={() => handleCategoryChange("ecommerce")}
+                className={`${activeCategory === "ecommerce"
+                    ? "border-2 border-white bg-white px-3 py-2 text-black"
+                    : "border-2 border-white bg-transparent text-white"
+                  } rounded-md py-2 min-w-[155px] max-w-[155px]`}
+              >
+                E-commerce
               </button>
             </div>
-          ))}
+          </div>
+          <div
+            ref={ref}
+            className={`mt-8 grid grid-cols-1 gap-6 ${activeCategory === "landing" ? "md:grid-cols-2" : "md:grid-cols-3"} md:gap-8 ${isVisible ? "animate-fadeIn" : ""
+              } ${animationClass}`}
+          >
+            {pricingData[activeCategory].map((plan, index) => (
+              <div
+                key={index}
+                className="relative flex flex-col justify-between overflow-hidden rounded-lg border-2 border-white bg-black/5 p-6 shadow-lg"
+              >
+                <div>
+                  <h3 className="text-center text-2xl font-bold">{plan.title}</h3>
+
+                  <ul className="mt-4 space-y-2">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center">
+                        <Check className="mr-2 h-5 w-5 text-green-500" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <button
+                  className={`mt-6 ${index === 1
+                      ? "border-2 border-white bg-white px-3 py-2 text-black transition duration-300 ease-in-out hover:bg-transparent hover:text-white"
+                      : "border-2 border-white bg-transparent text-white transition duration-300 ease-in-out hover:bg-white hover:text-black"
+                    } rounded-md px-4 py-2`}
+                >
+                  Seleccionar Plan
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
     </section>
   );
 };

@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className="h-[75px] text-center">
       <p className="mb-3">
-        Desarrollador por{" "}
+        Desarrollado por{" "}
         <Link className="underline" href={"#"}>
           Codia
         </Link>
