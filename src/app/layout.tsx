@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="scroll-smooth " lang="es">
-      <body className={`bg-black ${inter.className}`}>
+      <body className={`bg-gray-950 ${inter.className}`}>
         <Navbar />
         {children}
       </body>

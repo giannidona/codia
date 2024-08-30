@@ -10,7 +10,7 @@ type CardProyectProps = {
 export const CardProyect = ({title, description, image}: CardProyectProps) => {
     return (
         <div className="w-full border-2 border-gray-500/10 bg-gray-500/25 rounded-2xl  flex flex-col py-5 justify-center items-center max-w-[600px]">
-            <div className="w-[90%] bg-black rounded-2xl h-[90%] flex justify-center pt-10 pb-10 px-2">
+            <div className="w-[90%] bg-gray-950 rounded-2xl h-[90%] flex justify-center pt-10 pb-10 px-2">
                 <Image width={400} height={400} src={image} alt="macbook" />
             </div>
             <div className="text-left w-[90%]">
