@@ -1,20 +1,38 @@
-import { CardProyect } from "./CardProyect";
+import { AppWindow, ShoppingCart } from "lucide-react";
 
 export const Services = () => {
   return (
-    <section className="w-full">
-      <div className="mx-auto flex w-[90%] flex-col items-center justify-center gap-10 py-5 text-center lg:flex-row">
-        <CardProyect
-          title="Our Services"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et pulvinar tortor, at tristique lorem. Nulla euismod porttitor purus vitae efficitur. Maecenas at odio condimentum, mattis mi tempor, suscipit arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus interdum laoreet gravida."
-          image="/macbook.png"
-        />
-
-        <CardProyect
-          title="Enzo chupala CM"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et pulvinar tortor, at tristique lorem. Nulla euismod porttitor purus vitae efficitur. Maecenas at odio condimentum, mattis mi tempor, suscipit arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus interdum laoreet gravida."
-          image="/macbook.png"
-        />
+    <section className="mx-auto my-20 w-[90%] xl:w-[70%]">
+      <h2 className="mb-3 text-3xl font-bold tracking-tighter sm:text-5xl">
+        Servicios
+      </h2>
+      <p className="mb-5 text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+        Potenciando su presencia en línea con soluciones personalizadas para el
+        crecimiento y el éxito.
+      </p>
+      <div className="lg:flex lg:gap-x-5">
+        <div className="mb-5 rounded-2xl border-2 border-gray-500/50 px-3 py-2">
+          <span>
+            <AppWindow className="my-2" />
+          </span>
+          <p className="mb-5 text-2xl font-bold">Landingpages</p>
+          <p className="font-thin">
+            Dé una primera impresión duradera con nuestras páginas de destino de
+            alta conversión. Creamos diseños atractivos que atraen a su
+            audiencia e impulsan la acción.
+          </p>
+        </div>
+        <div className="mb-5 rounded-2xl border-2 border-gray-500/50 px-3 py-2">
+          <span>
+            <ShoppingCart className="my-2" />
+          </span>
+          <p className="mb-5 text-2xl font-bold">E-commerce</p>
+          <p className="font-thin">
+            Impulsa tus ventas online con nuestras plataformas de comercio
+            electrónico personalizadas. Creamos experiencias de compra fluidas
+            que convierten a los visitantes en clientes leales.
+          </p>
+        </div>
       </div>
     </section>
   );
