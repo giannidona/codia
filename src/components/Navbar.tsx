@@ -31,7 +31,7 @@ export const Navbar = () => {
   return (
     <nav className="sticky top-0 z-40 flex h-[75px] w-full flex-col bg-gray-950 backdrop-blur-sm">
       <div className="z-50 w-full bg-gray-950 py-3">
-        <div className="mx-auto flex w-[90%] items-center justify-between">
+        <div className="mx-auto flex w-[90%] items-center justify-between lg:w-[70%]">
           <div>
             <Image src="/logo.svg" alt="codia logo" width={100} height={50} />
           </div>
