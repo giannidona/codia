@@ -2,7 +2,7 @@ import { AppWindow, ShoppingCart } from "lucide-react";
 
 export const Services = () => {
   return (
-    <section className="mx-auto my-20 w-[90%] xl:w-[70%]">
+    <section className="mx-auto my-20 w-[90%] xl:w-[70%]" id="servicios">
       <h2 className="mb-3 text-3xl font-bold tracking-tighter sm:text-5xl">
         Servicios
       </h2>
@@ -15,7 +15,7 @@ export const Services = () => {
           <span>
             <AppWindow className="my-2" />
           </span>
-          <p className="mb-5 text-2xl font-bold">Landingpages</p>
+          <p className="mb-5 text-2xl font-bold">Landing Pages</p>
           <p className="font-thin">
             Dé una primera impresión duradera con nuestras páginas de destino de
             alta conversión. Creamos diseños atractivos que atraen a su

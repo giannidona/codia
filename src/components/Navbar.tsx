@@ -7,10 +7,11 @@ import Link from "next/link";
 import { SiTiktok, SiInstagram, SiYoutube } from "react-icons/si";
 
 const links = [
-  { slug: "/awd", text: "Inicio" },
-  { slug: "/aa", text: "Servicios" },
-  { slug: "/ww", text: "Proyectos" },
-  { slug: "/dd", text: "Contacto" },
+  { slug: "/", text: "Inicio" },
+  { slug: "#servicios", text: "Servicios" },
+  { slug: "#precios", text: "Precios" },
+  { slug: "#proyectos", text: "Proyectos" },
+  { slug: "#contacto", text: "Contacto" },
 ];
 
 export const Navbar = () => {
@@ -32,9 +33,9 @@ export const Navbar = () => {
     <nav className="sticky top-0 z-40 flex h-[75px] w-full flex-col bg-gray-950 backdrop-blur-sm">
       <div className="z-50 w-full bg-gray-950 py-3">
         <div className="mx-auto flex w-[90%] items-center justify-between lg:w-[70%]">
-          <div>
+          <Link href={"./"}>
             <Image src="/logo.svg" alt="codia logo" width={100} height={50} />
-          </div>
+          </Link>
           <div className="flex text-white md:hidden">
             <Hamburger toggled={Open} toggle={setOpen} />
           </div>
