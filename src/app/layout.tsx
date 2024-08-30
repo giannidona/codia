@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
+import { Navbar, Footer } from "@/components";
 
 const inter = Poppins({
   subsets: ["latin"],
-  weight: ["500"],
+  weight: ["200", "500"],
 });
 
 export const metadata: Metadata = {
@@ -19,10 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="scroll-smooth " lang="es">
+    <html className="scroll-smooth" lang="es">
       <body className={`bg-gray-950 ${inter.className}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
