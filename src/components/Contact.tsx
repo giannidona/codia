@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MdMailOutline, MdWhatsapp } from "react-icons/md";
+import { Form } from "./Form";
 
 export const Contact = () => {
   return (
@@ -35,33 +36,7 @@ export const Contact = () => {
         </div>
       </div>
 
-      <div className="my-5 xl:w-[500px]">
-        <form className="grid gap-4 text-black">
-          <input
-            className="rounded px-3 py-2 outline-gray-950"
-            placeholder="Nombre"
-          />
-          <input
-            className="rounded px-3 py-2 outline-gray-950"
-            placeholder="Email"
-            type="email"
-          />
-          <input
-            className="rounded px-3 py-2 outline-gray-950"
-            placeholder="Asunto"
-          />
-          <textarea
-            className="min-h-[100px] rounded px-3 py-2 outline-gray-950"
-            placeholder="Mensaje"
-          />
-          <button
-            className="w-full rounded border-2 border-white bg-white px-3 py-2 font-semibold text-black transition duration-300 ease-in-out hover:bg-transparent hover:text-white"
-            type="submit"
-          >
-            Enviar mensaje
-          </button>
-        </form>
-      </div>
+      <Form />
     </section>
   );
 };
