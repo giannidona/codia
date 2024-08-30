@@ -4,7 +4,7 @@ import { MdMailOutline, MdWhatsapp } from "react-icons/md";
 export const Contact = () => {
   return (
     <section className="mx-auto my-20 w-[90%] lg:flex lg:justify-between xl:w-[50%]">
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center pb-5">
         <h2 className="mb-3 text-3xl font-bold tracking-tighter sm:text-5xl">
           Contáctanos
         </h2>
