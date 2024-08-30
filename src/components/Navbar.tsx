@@ -75,13 +75,25 @@ export const Navbar = () => {
           ))}
         </ul>
         <div className="mt-10 flex justify-center gap-x-5">
-          <Link className="text-white" href={"/"} target="_blank">
+          <Link
+            className="text-white"
+            href={"https://www.instagram.com/codiawebs/"}
+            target="_blank"
+          >
             <SiInstagram />
           </Link>
-          <Link className="text-white" href={"/"} target="_blank">
+          <Link
+            className="text-white"
+            href={"https://www.tiktok.com/@codiawebs"}
+            target="_blank"
+          >
             <SiTiktok />
           </Link>
-          <Link className="text-white" href={"/"} target="_blank">
+          <Link
+            className="text-white"
+            href={"https://www.youtube.com/@codia-webs"}
+            target="_blank"
+          >
             <SiYoutube />
           </Link>
         </div>
