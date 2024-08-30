@@ -3,9 +3,11 @@ import { MdMailOutline, MdWhatsapp } from "react-icons/md";
 
 export const Contact = () => {
   return (
-    <section className="mx-auto my-10 w-[90%] md:w-[90%] lg:flex lg:justify-between xl:w-[50%]">
+    <section className="mx-auto my-20 w-[90%] lg:flex lg:justify-between xl:w-[50%]">
       <div className="flex flex-col justify-center">
-        <h2 className="mb-3 text-3xl">Contáctanos</h2>
+        <h2 className="mb-3 text-3xl font-bold tracking-tighter sm:text-5xl">
+          Contáctanos
+        </h2>
         <div className="mb-3 text-gray-500 lg:w-[70%]">
           <p>Estamos aquí para convertir tus ideas en realidad digital.</p>
           <p>
@@ -34,7 +36,7 @@ export const Contact = () => {
       </div>
 
       <div className="my-5 xl:w-[500px]">
-        <form className="grid gap-4">
+        <form className="grid gap-4 text-black">
           <input
             className="rounded px-3 py-2 outline-gray-950"
             placeholder="Nombre"
