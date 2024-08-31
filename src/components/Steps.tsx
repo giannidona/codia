@@ -2,7 +2,7 @@ import { CodeXml, MessageSquare, Rocket } from "lucide-react";
 
 export const Steps = () => {
   return (
-    <section className="mx-auto my-20 w-[90%] xl:w-[70%] h-[50vh]">
+    <section className="mx-auto my-20 w-[90%] xl:w-[70%] lg:h-[50vh]">
       <h2 className="mb-3 text-3xl font-bold tracking-tighter sm:text-5xl">
         Como trabajamos
       </h2>
@@ -33,7 +33,7 @@ export const Steps = () => {
         </div>
         <div className="mb-5 rounded-2xl border-2 border-gray-500/50 px-3 py-2">
           <div>
-            <p className="mb-2 flex items-center gap-x-2">
+            <p className="mb-2 flex items-center gap-x-2" id="servicios">
               <Rocket size={20} />
               Entregamos
             </p>

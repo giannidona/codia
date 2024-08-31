@@ -3,6 +3,7 @@
 import { Check } from "lucide-react";
 import { useState, useEffect } from "react";
 import useIntersectionObserver from "../app/hooks/useIntersectionObserver"; // Ajusta la ruta según tu estructura de archivos
+import Link from 'next/link';
 
 interface PricingPlan {
   title: string;
@@ -31,7 +32,7 @@ export const Pricing = () => {
           "Formulario de contacto",
           "Optimización SEO básica",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Landing%20Page%20B%C3%A1sica*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
       {
         title: "Profesional",
@@ -42,7 +43,7 @@ export const Pricing = () => {
           "Optimización SEO avanzada",
           "Integración de redes sociales",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20un%20*Landing%20Page%20Profesional*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
     ],
     ecommerce: [
@@ -54,7 +55,7 @@ export const Pricing = () => {
           "Pasarela de pago",
           "Gestión de inventario básica",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Tienda%20B%C3%A1sica*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
       {
         title: "Tienda Avanzada",
@@ -65,7 +66,7 @@ export const Pricing = () => {
           "Gestión de inventario avanzada",
           "Integración con marketplaces",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Tienda%20Avanzada*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
       {
         title: "Tienda Empresarial",
@@ -76,7 +77,7 @@ export const Pricing = () => {
           "Integración con ERP",
           "Soporte prioritario 24/7",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Tienda%20Empresarial*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
     ],
   };
@@ -109,13 +110,13 @@ export const Pricing = () => {
               Elige el plan perfecto para tu negocio. Todos los planes incluyen
               soporte técnico y actualizaciones gratuitas.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-2 xs:space-x-4">
               <button
                 onClick={() => handleCategoryChange("landing")}
                 className={`${activeCategory === "landing"
                     ? "border-2 border-white bg-white px-3 py-2 text-black"
                     : "border-2 border-white bg-transparent text-white"
-                  } rounded-md py-2 min-w-[155px] max-w-[155px]`}
+                  } rounded-md py-2 min-w-[145px] max-w-[155px]`}
               >
                 Landing Page
               </button>
@@ -124,9 +125,9 @@ export const Pricing = () => {
                 className={`${activeCategory === "ecommerce"
                     ? "border-2 border-white bg-white px-3 py-2 text-black"
                     : "border-2 border-white bg-transparent text-white"
-                  } rounded-md py-2 min-w-[155px] max-w-[155px]`}
+                  } rounded-md py-2 min-w-[145px] max-w-[155px] `}
               >
-                E-commerce
+                E-Commerce
               </button>
             </div>
           </div>
@@ -152,14 +153,16 @@ export const Pricing = () => {
                     ))}
                   </ul>
                 </div>
-                <button
+                <Link
+                  href={plan.link}
+                  target="_blank" 
                   className={`mt-6 ${index === 1
                       ? "border-2 border-white bg-white px-3 py-2 text-black transition duration-300 ease-in-out hover:bg-transparent hover:text-white"
                       : "border-2 border-white bg-transparent text-white transition duration-300 ease-in-out hover:bg-white hover:text-black"
                     } rounded-md px-4 py-2`}
                 >
                   Seleccionar Plan
-                </button>
+                </Link>
               </div>
             ))}
           </div>

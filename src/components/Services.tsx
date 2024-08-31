@@ -2,7 +2,7 @@ import { AppWindow, ShoppingCart } from "lucide-react";
 
 export const Services = () => {
   return (
-    <section className="mx-auto my-20 w-[90%] xl:w-[70%]" id="servicios">
+    <section className="mx-auto my-20 w-[90%] xl:w-[70%]">
       <h2 className="mb-3 text-3xl font-bold tracking-tighter sm:text-5xl">
         Servicios
       </h2>

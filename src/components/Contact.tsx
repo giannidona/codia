@@ -18,7 +18,7 @@ export const Contact = () => {
         </div>
         <div>
           <Link
-            href={"/"}
+            href={"mailto:codiawebs@gmail.com"}
             target="_blank"
             className="flex w-fit items-center gap-x-2 text-lg hover:underline"
           >
@@ -26,7 +26,7 @@ export const Contact = () => {
             codiawebs@gmail.com
           </Link>
           <Link
-            href={"/"}
+            href={"https://wa.me/541173617314"}
             target="_blank"
             className="flex w-fit items-center gap-x-2 text-lg hover:underline"
           >
