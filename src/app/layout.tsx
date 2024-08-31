@@ -9,8 +9,22 @@ const inter = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://codiawebs.com"),
   title: "Codia",
   description: "La página web ideal para tu negocio, hecha por nosotros.",
+  keywords: ["agencia", "desarrollo web", "landingpages", "e-commerce"],
+  openGraph: {
+    url: "https://codiawebs.com",
+    images: [
+      {
+        url: "/logo-seo.png",
+        width: 1200,
+        height: 630,
+        alt: "Codia Logo",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
