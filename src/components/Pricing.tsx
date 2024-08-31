@@ -94,37 +94,42 @@ export const Pricing = () => {
     setTimeout(() => {
       setActiveCategory(category);
       setAnimationClass("fade-in");
-    }, 500); // Duration of the fade-out animation
+    }, 500);
   };
 
   return (
-    <section className="mx-auto my-20 w-[90%] xl:w-[70%] lg:h-[100vh] lg:flex lg:items-center lg:justify-center " id="precios">
+    <section
+      className="mx-auto my-20 w-[90%] lg:flex lg:h-[100vh] lg:items-center lg:justify-center xl:w-[70%]"
+      id="precios"
+    >
       <div className="w-full">
         <div className="px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               Nuestros Planes
             </h2>
-            <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Elige el plan perfecto para tu negocio. Todos los planes incluyen
               soporte técnico y actualizaciones gratuitas.
             </p>
             <div className="flex space-x-4">
               <button
                 onClick={() => handleCategoryChange("landing")}
-                className={`${activeCategory === "landing"
+                className={`${
+                  activeCategory === "landing"
                     ? "border-2 border-white bg-white px-3 py-2 text-black"
                     : "border-2 border-white bg-transparent text-white"
-                  } rounded-md py-2 min-w-[155px] max-w-[155px]`}
+                } min-w-[155px] max-w-[155px] rounded-md py-2`}
               >
                 Landing Page
               </button>
               <button
                 onClick={() => handleCategoryChange("ecommerce")}
-                className={`${activeCategory === "ecommerce"
+                className={`${
+                  activeCategory === "ecommerce"
                     ? "border-2 border-white bg-white px-3 py-2 text-black"
                     : "border-2 border-white bg-transparent text-white"
-                  } rounded-md py-2 min-w-[155px] max-w-[155px]`}
+                } min-w-[155px] max-w-[155px] rounded-md py-2`}
               >
                 E-commerce
               </button>
@@ -132,8 +137,9 @@ export const Pricing = () => {
           </div>
           <div
             ref={ref}
-            className={`mt-8 grid grid-cols-1 gap-6 ${activeCategory === "landing" ? "md:grid-cols-2" : "md:grid-cols-3"} md:gap-8 ${isVisible ? "animate-fadeIn" : ""
-              } ${animationClass}`}
+            className={`mt-8 grid grid-cols-1 gap-6 ${activeCategory === "landing" ? "md:grid-cols-2" : "md:grid-cols-3"} md:gap-8 ${
+              isVisible ? "animate-fadeIn" : ""
+            } ${animationClass}`}
           >
             {pricingData[activeCategory].map((plan, index) => (
               <div
@@ -141,7 +147,9 @@ export const Pricing = () => {
                 className="relative flex flex-col justify-between overflow-hidden rounded-lg border-2 border-white bg-black/5 p-6 shadow-lg"
               >
                 <div>
-                  <h3 className="text-center text-2xl font-bold">{plan.title}</h3>
+                  <h3 className="text-center text-2xl font-bold">
+                    {plan.title}
+                  </h3>
 
                   <ul className="mt-4 space-y-2">
                     {plan.features.map((feature, featureIndex) => (
@@ -153,10 +161,11 @@ export const Pricing = () => {
                   </ul>
                 </div>
                 <button
-                  className={`mt-6 ${index === 1
+                  className={`mt-6 ${
+                    index === 1
                       ? "border-2 border-white bg-white px-3 py-2 text-black transition duration-300 ease-in-out hover:bg-transparent hover:text-white"
                       : "border-2 border-white bg-transparent text-white transition duration-300 ease-in-out hover:bg-white hover:text-black"
-                    } rounded-md px-4 py-2`}
+                  } rounded-md px-4 py-2`}
                 >
                   Seleccionar Plan
                 </button>
@@ -165,7 +174,6 @@ export const Pricing = () => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };

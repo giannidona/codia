@@ -6,7 +6,7 @@ export const Services = () => {
       <h2 className="mb-3 text-3xl font-bold tracking-tighter sm:text-5xl">
         Servicios
       </h2>
-      <p className="mb-5 text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+      <p className="mb-5 text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
         Potenciando su presencia en línea con soluciones personalizadas para el
         crecimiento y el éxito.
       </p>

@@ -37,7 +37,14 @@ export const Navbar = () => {
             <Image src="/logo.svg" alt="codia logo" width={100} height={50} />
           </Link>
           <div className="flex text-white md:hidden">
-            <Hamburger toggled={Open} toggle={setOpen} />
+            <button
+              role="button"
+              className="hamburger-react"
+              aria-label="Alternar menú de navegación"
+              onClick={() => setOpen(!Open)}
+            >
+              <Hamburger toggled={Open} toggle={setOpen} />
+            </button>
           </div>
           <div className="hidden md:flex">
             <ul className="flex space-x-4">
@@ -68,6 +75,7 @@ export const Navbar = () => {
                 href={link.slug}
                 className="text-white hover:text-gray-400"
                 onClick={() => setOpen(false)}
+                aria-label={`Ir a la sección ${link.text}`}
               >
                 {link.text}
               </a>
@@ -77,24 +85,30 @@ export const Navbar = () => {
         <div className="mt-10 flex justify-center gap-x-5">
           <Link
             className="text-white"
-            href={"https://www.instagram.com/codiawebs/"}
+            href="https://www.instagram.com/codiawebs/"
             target="_blank"
+            aria-label="Visítanos en Instagram"
           >
             <SiInstagram />
+            <span className="sr-only">Instagram</span>
           </Link>
           <Link
             className="text-white"
-            href={"https://www.tiktok.com/@codiawebs"}
+            href="https://www.tiktok.com/@codiawebs"
             target="_blank"
+            aria-label="Síguenos en TikTok"
           >
             <SiTiktok />
+            <span className="sr-only">TikTok</span>
           </Link>
           <Link
             className="text-white"
-            href={"https://www.youtube.com/@codia-webs"}
+            href="https://www.youtube.com/@codia-webs"
             target="_blank"
+            aria-label="Mira nuestros videos en YouTube"
           >
             <SiYoutube />
+            <span className="sr-only">YouTube</span>
           </Link>
         </div>
       </div>
