@@ -1,8 +1,11 @@
-export { Navbar } from "./Navbar";
-export { Hero } from "./Hero";
-export { Services } from "./Services";
-export { CardProyect } from "./CardProyect";
-export { Contact } from "./Contact";
-export { Steps } from "./Steps";
-export { Footer } from "./Footer";
-export { Pricing } from "./Pricing";
+// SECTIONS
+export { Hero } from "./sections/Hero";
+export { Steps } from "./sections/Steps";
+export { Services } from "./sections/Services";
+export { Pricing } from "./sections/Pricing";
+export { Contact } from "./sections/Contact";
+
+// UI
+export { Navbar } from "./ui/Navbar";
+export { CardProyect } from "./ui/CardProyect";
+export { Footer } from "./ui/Footer";

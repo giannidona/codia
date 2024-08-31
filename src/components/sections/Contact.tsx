@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MdMailOutline, MdWhatsapp } from "react-icons/md";
-import { Form } from "./Form";
+import { Form } from "../ui/Form";
 
 export const Contact = () => {
   return (

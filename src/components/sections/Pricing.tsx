@@ -2,7 +2,7 @@
 
 import { Check } from "lucide-react";
 import { useState, useEffect } from "react";
-import useIntersectionObserver from "../app/hooks/useIntersectionObserver"; // Ajusta la ruta según tu estructura de archivos
+import useIntersectionObserver from "../../app/hooks/useIntersectionObserver";
 
 interface PricingPlan {
   title: string;
