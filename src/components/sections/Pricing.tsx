@@ -3,6 +3,7 @@
 import { Check } from "lucide-react";
 import { useState, useEffect } from "react";
 import useIntersectionObserver from "../../app/hooks/useIntersectionObserver"; // Ajusta la ruta según tu estructura de archivos
+import Link from "next/link";
 
 interface PricingPlan {
   title: string;
@@ -160,15 +161,17 @@ export const Pricing = () => {
                     ))}
                   </ul>
                 </div>
-                <button
-                  className={`mt-6 ${
+                <Link
+                  href={plan.link}
+                  target="_blank"
+                  className={`mt-6 text-center ${
                     index === 1
                       ? "border-2 border-white bg-white px-3 py-2 text-black transition duration-300 ease-in-out hover:bg-transparent hover:text-white"
                       : "border-2 border-white bg-transparent text-white transition duration-300 ease-in-out hover:bg-white hover:text-black"
                   } rounded-md px-4 py-2`}
                 >
                   Seleccionar Plan
-                </button>
+                </Link>
               </div>
             ))}
           </div>
