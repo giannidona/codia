@@ -2,7 +2,7 @@
 
 import { Check } from "lucide-react";
 import { useState, useEffect } from "react";
-import useIntersectionObserver from "../../app/hooks/useIntersectionObserver";
+import useIntersectionObserver from "../../app/hooks/useIntersectionObserver"; // Ajusta la ruta según tu estructura de archivos
 
 interface PricingPlan {
   title: string;
@@ -31,7 +31,7 @@ export const Pricing = () => {
           "Formulario de contacto",
           "Optimización SEO básica",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Landing%20Page%20B%C3%A1sica*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
       {
         title: "Profesional",
@@ -42,7 +42,7 @@ export const Pricing = () => {
           "Optimización SEO avanzada",
           "Integración de redes sociales",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20un%20*Landing%20Page%20Profesional*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
     ],
     ecommerce: [
@@ -54,7 +54,7 @@ export const Pricing = () => {
           "Pasarela de pago",
           "Gestión de inventario básica",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Tienda%20B%C3%A1sica*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
       {
         title: "Tienda Avanzada",
@@ -65,7 +65,7 @@ export const Pricing = () => {
           "Gestión de inventario avanzada",
           "Integración con marketplaces",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Tienda%20Avanzada*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
       {
         title: "Tienda Empresarial",
@@ -76,7 +76,7 @@ export const Pricing = () => {
           "Integración con ERP",
           "Soporte prioritario 24/7",
         ],
-        link: "wsp",
+        link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Tienda%20Empresarial*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
     ],
   };
@@ -112,7 +112,7 @@ export const Pricing = () => {
               Elige el plan perfecto para tu negocio. Todos los planes incluyen
               soporte técnico y actualizaciones gratuitas.
             </p>
-            <div className="flex space-x-4">
+            <div className="xs:space-x-4 flex items-center space-x-2">
               <button
                 onClick={() => handleCategoryChange("landing")}
                 className={`${
@@ -131,7 +131,7 @@ export const Pricing = () => {
                     : "border-2 border-white bg-transparent text-white"
                 } min-w-[155px] max-w-[155px] rounded-md py-2`}
               >
-                E-commerce
+                E-Commerce
               </button>
             </div>
           </div>
