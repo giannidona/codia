@@ -10,8 +10,8 @@ export const Hero = () => {
       </h1>
 
       <div className="group relative mt-12 cursor-pointer rounded px-3 py-2 text-xl font-normal text-white">
-        <div className="absolute inset-0 rounded bg-gradient-to-r from-cyan-500 to-eLightBlue text-transparent blur-md" />
-        <div className="absolute inset-0 rounded bg-gradient-to-r from-cyan-500 to-eLightBlue text-transparent" />
+        <div className="absolute inset-0 rounded bg-gradient-to-r from-cyan-400 to-eLightBlue text-transparent blur-md" />
+        <div className="absolute inset-0 rounded bg-gradient-to-r from-cyan-400 to-eLightBlue text-transparent" />
         <Link
           href={"#contacto"}
           className="relative z-10 flex items-center justify-around gap-x-2"
