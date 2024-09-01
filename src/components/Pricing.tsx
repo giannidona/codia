@@ -9,6 +9,8 @@ interface PricingPlan {
   title: string;
   features: string[];
   link: string;
+  featureMas?: string;
+  featureTooltip?: { text: string, index: number };
 }
 
 interface PricingData {
@@ -27,22 +29,25 @@ export const Pricing = () => {
       {
         title: "Básico",
         features: [
-          "Diseño personalizado",
           "Hasta 5 secciones",
-          "Formulario de contacto",
+          "Formulario de Contacto + Botón de Whatsapp",
+          "Adaptacion Mobile",
           "Optimización SEO básica",
+          "Integración de Redes Sociales"
         ],
+        featureTooltip: { text: "Ayuda a los usuarios a encontrar tu contenido.", index: 3 },
         link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Landing%20Page%20B%C3%A1sica*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
       {
         title: "Profesional",
         features: [
-          "Todo lo del plan Básico",
-          "Hasta 10 secciones",
+          "Landing Basica ",
+          "Secciones Ilimitadas",
           "Animaciones personalizadas",
-          "Optimización SEO avanzada",
-          "Integración de redes sociales",
+          "Optimización de SEO y Rendimiento Avanzada",
+          "Soporte 24/7",
         ],
+        featureMas: "(+)",
         link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20un%20*Landing%20Page%20Profesional*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
     ],
@@ -50,33 +55,35 @@ export const Pricing = () => {
       {
         title: "Tienda Básica",
         features: [
-          "Hasta 50 productos",
-          "Carrito de compras",
-          "Pasarela de pago",
-          "Gestión de inventario básica",
+          "Carrito de compra",
+          "Compras via Whatsapp",
+          "Gestión de inventario Básica",
         ],
         link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Tienda%20B%C3%A1sica*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
       {
         title: "Tienda Avanzada",
         features: [
-          "Hasta 500 productos",
-          "Sistema de cupones y descuentos",
-          "Múltiples pasarelas de pago",
-          "Gestión de inventario avanzada",
-          "Integración con marketplaces",
+          "Tienda Básica",
+          "Integración con WooCommerce",
+          "Sistemas de Cupones",
+          "Gestión de inventario Avanzada",
+          "Sistema de Usuarios",
+          "Soporte 24/7",
         ],
+        featureMas: "(+)",
         link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Tienda%20Avanzada*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
       {
         title: "Tienda Empresarial",
         features: [
-          "Productos ilimitados",
-          "Sistema de suscripciones",
-          "Personalización avanzada de productos",
-          "Integración con ERP",
+          "Tienda Avanzada",
+          "Integración con Mercado Libre",
+          "Integracion con Chatbot",
+          "Integracion con Dashboard (CRM)",
           "Soporte prioritario 24/7",
         ],
+        featureMas: "(+)",
         link: "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20una%20*Tienda%20Empresarial*,%20%C2%BFMe%20podr%C3%ADan%20brindar%20m%C3%A1s%20informaci%C3%B3n?%20Muchas%20gracias.",
       },
     ],
@@ -108,14 +115,14 @@ export const Pricing = () => {
             </h2>
             <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Elige el plan perfecto para tu negocio. Todos los planes incluyen
-              soporte técnico y actualizaciones gratuitas.
+              diseño personalizado y cotización gratuita.
             </p>
-            <div className="flex items-center space-x-2 xs:space-x-4">
+            <div className="flex space-x-2 xs:space-x-4">
               <button
                 onClick={() => handleCategoryChange("landing")}
                 className={`${activeCategory === "landing"
-                    ? "border-2 border-white bg-white px-3 py-2 text-black"
-                    : "border-2 border-white bg-transparent text-white"
+                  ? "border-2 border-white bg-white px-3 py-2 text-black"
+                  : "border-2 border-white bg-transparent text-white"
                   } rounded-md py-2 min-w-[145px] max-w-[155px]`}
               >
                 Landing Page
@@ -123,8 +130,8 @@ export const Pricing = () => {
               <button
                 onClick={() => handleCategoryChange("ecommerce")}
                 className={`${activeCategory === "ecommerce"
-                    ? "border-2 border-white bg-white px-3 py-2 text-black"
-                    : "border-2 border-white bg-transparent text-white"
+                  ? "border-2 border-white bg-white px-3 py-2 text-black"
+                  : "border-2 border-white bg-transparent text-white"
                   } rounded-md py-2 min-w-[145px] max-w-[155px] `}
               >
                 E-Commerce
@@ -149,17 +156,43 @@ export const Pricing = () => {
                       <li key={featureIndex} className="flex items-center">
                         <Check className="mr-2 h-5 w-5 text-green-500" />
                         {feature}
+                        {plan.featureMas && featureIndex === 0 && (
+                          <span className="ml-1 text-xs opacity-50">{plan.featureMas}</span>
+                        )}
+                        {plan.featureTooltip && featureIndex === plan.featureTooltip.index && (
+                          <span className="ml-1 text-xs relative group">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="lucide lucide-circle-help size-5 opacity-50 cursor-pointer"
+                            >
+                              <circle cx="12" cy="12" r="10" />
+                              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                              <path d="M12 17h.01" />
+                            </svg>
+                            <span className="absolute left-full top-1/2 transform -translate-y-1/2 ml-2 w-max px-2 py-1 text-xs text-white bg-slate-600/40 rounded opacity-0 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100 transition-opacity duration-300">
+                              {plan.featureTooltip.text}
+                            </span>
+                          </span>
+                        )}
                       </li>
                     ))}
                   </ul>
+
+
                 </div>
                 <Link
                   href={plan.link}
-                  target="_blank" 
-                  className={`mt-6 ${index === 1
-                      ? "border-2 border-white bg-white px-3 py-2 text-black transition duration-300 ease-in-out hover:bg-transparent hover:text-white"
-                      : "border-2 border-white bg-transparent text-white transition duration-300 ease-in-out hover:bg-white hover:text-black"
-                    } rounded-md px-4 py-2`}
+                  target="_blank"
+                  className="mt-6 text-center
+                    border-2 border-white bg-white px-3 py-2 text-black transition duration-300 ease-in-out hover:bg-transparent hover:text-white"
                 >
                   Seleccionar Plan
                 </Link>
