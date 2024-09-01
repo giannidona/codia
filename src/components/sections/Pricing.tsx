@@ -175,6 +175,21 @@ export const Pricing = () => {
               </div>
             ))}
           </div>
+          <div className="mt-8 text-center text-gray-400">
+            <p>
+              Si ninguno de los planes te convence,{" "}
+              <Link
+                className="underline"
+                target="_blank"
+                href={
+                  "https://api.whatsapp.com/send?phone=+541173617314&text=Hola!%20Estoy%20interesado%20en%20hacer%20*Un%20Proyecto%20Personalizado*%20con%20ustedes."
+                }
+              >
+                hacé click acá
+              </Link>{" "}
+              y comentanos tus necesidades.{" "}
+            </p>
+          </div>
         </div>
       </div>
     </section>
