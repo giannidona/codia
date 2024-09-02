@@ -26,7 +26,7 @@ export const Services = () => {
           <span>
             <ShoppingCart className="my-2" />
           </span>
-          <p className="mb-5 text-2xl font-bold">E-commerce</p>
+          <p className="mb-5 text-2xl font-bold">E-Commerce</p>
           <p className="font-thin">
             Impulsa tus ventas online con nuestras plataformas de comercio
             electrónico personalizadas. Creamos experiencias de compra fluidas
